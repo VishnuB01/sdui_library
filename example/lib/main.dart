@@ -41,16 +41,13 @@ const Map<String, dynamic> profileCardJson = {
         "type": "linear",
         "colors": ["#6C63FF", "#3B82F6"],
         "begin": "topLeft",
-        "end": "bottomRight"
+        "end": "bottomRight",
       },
-      "borderRadius": 20
+      "borderRadius": 20,
     },
     "child": {
       "widget": "Column",
-      "properties": {
-        "crossAxisAlignment": "start",
-        "mainAxisSize": "min"
-      },
+      "properties": {"crossAxisAlignment": "start", "mainAxisSize": "min"},
       "children": [
         {
           "widget": "Row",
@@ -60,7 +57,7 @@ const Map<String, dynamic> profileCardJson = {
               "widget": "Column",
               "properties": {
                 "crossAxisAlignment": "start",
-                "mainAxisSize": "min"
+                "mainAxisSize": "min",
               },
               "children": [
                 {
@@ -69,32 +66,28 @@ const Map<String, dynamic> profileCardJson = {
                     "data": "Alex Johnson",
                     "fontSize": 22,
                     "fontWeight": "bold",
-                    "color": "#FFFFFF"
-                  }
+                    "color": "#FFFFFF",
+                  },
                 },
                 {
                   "widget": "Text",
                   "properties": {
                     "data": "Flutter Developer",
                     "fontSize": 14,
-                    "color": "#C7D2FE"
-                  }
-                }
-              ]
+                    "color": "#C7D2FE",
+                  },
+                },
+              ],
             },
             {
               "widget": "Icon",
-              "properties": {
-                "icon": "person",
-                "color": "#FFFFFF",
-                "size": 40
-              }
-            }
-          ]
+              "properties": {"icon": "person", "color": "#FFFFFF", "size": 40},
+            },
+          ],
         },
         {
           "widget": "Container",
-          "properties": {"height": 16}
+          "properties": {"height": 16},
         },
         {
           "widget": "Row",
@@ -102,18 +95,21 @@ const Map<String, dynamic> profileCardJson = {
           "children": [
             {
               "widget": "MyBadge",
-              "properties": {"label": "Pro", "color": "#22C55E"}
+              "properties": {"label": "Pro", "color": "#22C55E"},
             },
-            {"widget": "Container", "properties": {"width": 8}},
+            {
+              "widget": "Container",
+              "properties": {"width": 8},
+            },
             {
               "widget": "MyBadge",
-              "properties": {"label": "Verified", "color": "#F59E0B"}
-            }
-          ]
-        }
-      ]
-    }
-  }
+              "properties": {"label": "Verified", "color": "#F59E0B"},
+            },
+          ],
+        },
+      ],
+    },
+  },
 };
 
 const Map<String, dynamic> statsRowJson = {
@@ -128,18 +124,15 @@ const Map<String, dynamic> statsRowJson = {
         "properties": {"padding": 16, "width": 100},
         "child": {
           "widget": "Column",
-          "properties": {
-            "crossAxisAlignment": "center",
-            "mainAxisSize": "min"
-          },
+          "properties": {"crossAxisAlignment": "center", "mainAxisSize": "min"},
           "children": [
             {
               "widget": "Icon",
               "properties": {
                 "icon": "trending_up",
                 "color": "#22C55E",
-                "size": 28
-              }
+                "size": 28,
+              },
             },
             {
               "widget": "Text",
@@ -147,20 +140,20 @@ const Map<String, dynamic> statsRowJson = {
                 "data": "2.4K",
                 "fontSize": 20,
                 "fontWeight": "bold",
-                "color": "#1F2937"
-              }
+                "color": "#1F2937",
+              },
             },
             {
               "widget": "Text",
               "properties": {
                 "data": "Followers",
                 "fontSize": 12,
-                "color": "#6B7280"
-              }
-            }
-          ]
-        }
-      }
+                "color": "#6B7280",
+              },
+            },
+          ],
+        },
+      },
     },
     {
       "widget": "Card",
@@ -170,18 +163,11 @@ const Map<String, dynamic> statsRowJson = {
         "properties": {"padding": 16, "width": 100},
         "child": {
           "widget": "Column",
-          "properties": {
-            "crossAxisAlignment": "center",
-            "mainAxisSize": "min"
-          },
+          "properties": {"crossAxisAlignment": "center", "mainAxisSize": "min"},
           "children": [
             {
               "widget": "Icon",
-              "properties": {
-                "icon": "star",
-                "color": "#F59E0B",
-                "size": 28
-              }
+              "properties": {"icon": "star", "color": "#F59E0B", "size": 28},
             },
             {
               "widget": "Text",
@@ -189,20 +175,20 @@ const Map<String, dynamic> statsRowJson = {
                 "data": "4.9",
                 "fontSize": 20,
                 "fontWeight": "bold",
-                "color": "#1F2937"
-              }
+                "color": "#1F2937",
+              },
             },
             {
               "widget": "Text",
               "properties": {
                 "data": "Rating",
                 "fontSize": 12,
-                "color": "#6B7280"
-              }
-            }
-          ]
-        }
-      }
+                "color": "#6B7280",
+              },
+            },
+          ],
+        },
+      },
     },
     {
       "widget": "Card",
@@ -212,18 +198,15 @@ const Map<String, dynamic> statsRowJson = {
         "properties": {"padding": 16, "width": 100},
         "child": {
           "widget": "Column",
-          "properties": {
-            "crossAxisAlignment": "center",
-            "mainAxisSize": "min"
-          },
+          "properties": {"crossAxisAlignment": "center", "mainAxisSize": "min"},
           "children": [
             {
               "widget": "Icon",
               "properties": {
                 "icon": "check_circle",
                 "color": "#6C63FF",
-                "size": 28
-              }
+                "size": 28,
+              },
             },
             {
               "widget": "Text",
@@ -231,22 +214,22 @@ const Map<String, dynamic> statsRowJson = {
                 "data": "128",
                 "fontSize": 20,
                 "fontWeight": "bold",
-                "color": "#1F2937"
-              }
+                "color": "#1F2937",
+              },
             },
             {
               "widget": "Text",
               "properties": {
                 "data": "Projects",
                 "fontSize": 12,
-                "color": "#6B7280"
-              }
-            }
-          ]
-        }
-      }
-    }
-  ]
+                "color": "#6B7280",
+              },
+            },
+          ],
+        },
+      },
+    },
+  ],
 };
 
 const Map<String, dynamic> actionsRowJson = {
@@ -262,16 +245,16 @@ const Map<String, dynamic> actionsRowJson = {
         "borderRadius": 12,
         "fontSize": 15,
         "fontWeight": "w600",
-        "padding": {"horizontal": 28, "vertical": 14}
+        "padding": {"horizontal": 28, "vertical": 14},
       },
       "icon": {
         "widget": "Icon",
-        "properties": {"icon": "person", "color": "#FFFFFF", "size": 18}
+        "properties": {"icon": "person", "color": "#FFFFFF", "size": 18},
       },
       "onTap": {
         "type": "follow",
-        "payload": {"userId": "alex_johnson"}
-      }
+        "payload": {"userId": "alex_johnson"},
+      },
     },
     {
       "widget": "OutlinedButton",
@@ -282,24 +265,24 @@ const Map<String, dynamic> actionsRowJson = {
         "borderRadius": 12,
         "fontSize": 15,
         "fontWeight": "w600",
-        "padding": {"horizontal": 24, "vertical": 14}
+        "padding": {"horizontal": 24, "vertical": 14},
       },
       "icon": {
         "widget": "Icon",
-        "properties": {"icon": "chat", "color": "#6C63FF", "size": 18}
+        "properties": {"icon": "chat", "color": "#6C63FF", "size": 18},
       },
       "onTap": {
         "type": "navigate",
-        "payload": {"route": "/chat", "userId": "alex_johnson"}
-      }
-    }
-  ]
+        "payload": {"route": "/chat", "userId": "alex_johnson"},
+      },
+    },
+  ],
 };
 
 // A card demonstrating the fallback widget for unknown types
 const Map<String, dynamic> unknownWidgetJson = {
   "widget": "SuperFancyWidget3000",
-  "properties": {"data": "This widget does not exist"}
+  "properties": {"data": "This widget does not exist"},
 };
 
 const Map<String, dynamic> featureListJson = {
@@ -308,7 +291,11 @@ const Map<String, dynamic> featureListJson = {
   "children": [
     {
       "widget": "Card",
-      "properties": {"elevation": 2, "borderRadius": 14, "margin": {"bottom": 10}},
+      "properties": {
+        "elevation": 2,
+        "borderRadius": 14,
+        "margin": {"bottom": 10},
+      },
       "child": {
         "widget": "Container",
         "properties": {"padding": 16},
@@ -322,7 +309,7 @@ const Map<String, dynamic> featureListJson = {
                 "width": 44,
                 "height": 44,
                 "color": "#EDE9FE",
-                "borderRadius": 12
+                "borderRadius": 12,
               },
               "child": {
                 "widget": "Center",
@@ -331,17 +318,20 @@ const Map<String, dynamic> featureListJson = {
                   "properties": {
                     "icon": "notifications",
                     "color": "#6C63FF",
-                    "size": 22
-                  }
-                }
-              }
+                    "size": 22,
+                  },
+                },
+              },
             },
-            {"widget": "Container", "properties": {"width": 14}},
+            {
+              "widget": "Container",
+              "properties": {"width": 14},
+            },
             {
               "widget": "Column",
               "properties": {
                 "crossAxisAlignment": "start",
-                "mainAxisSize": "min"
+                "mainAxisSize": "min",
               },
               "children": [
                 {
@@ -350,26 +340,30 @@ const Map<String, dynamic> featureListJson = {
                     "data": "Push Notifications",
                     "fontSize": 15,
                     "fontWeight": "w600",
-                    "color": "#1F2937"
-                  }
+                    "color": "#1F2937",
+                  },
                 },
                 {
                   "widget": "Text",
                   "properties": {
                     "data": "Real-time alerts from the server",
                     "fontSize": 12,
-                    "color": "#6B7280"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      }
+                    "color": "#6B7280",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      },
     },
     {
       "widget": "Card",
-      "properties": {"elevation": 2, "borderRadius": 14, "margin": {"bottom": 10}},
+      "properties": {
+        "elevation": 2,
+        "borderRadius": 14,
+        "margin": {"bottom": 10},
+      },
       "child": {
         "widget": "Container",
         "properties": {"padding": 16},
@@ -383,7 +377,7 @@ const Map<String, dynamic> featureListJson = {
                 "width": 44,
                 "height": 44,
                 "color": "#DCFCE7",
-                "borderRadius": 12
+                "borderRadius": 12,
               },
               "child": {
                 "widget": "Center",
@@ -392,17 +386,20 @@ const Map<String, dynamic> featureListJson = {
                   "properties": {
                     "icon": "bar_chart",
                     "color": "#22C55E",
-                    "size": 22
-                  }
-                }
-              }
+                    "size": 22,
+                  },
+                },
+              },
             },
-            {"widget": "Container", "properties": {"width": 14}},
+            {
+              "widget": "Container",
+              "properties": {"width": 14},
+            },
             {
               "widget": "Column",
               "properties": {
                 "crossAxisAlignment": "start",
-                "mainAxisSize": "min"
+                "mainAxisSize": "min",
               },
               "children": [
                 {
@@ -411,24 +408,24 @@ const Map<String, dynamic> featureListJson = {
                     "data": "Dynamic Analytics",
                     "fontSize": 15,
                     "fontWeight": "w600",
-                    "color": "#1F2937"
-                  }
+                    "color": "#1F2937",
+                  },
                 },
                 {
                   "widget": "Text",
                   "properties": {
                     "data": "Charts and widgets from JSON",
                     "fontSize": 12,
-                    "color": "#6B7280"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      }
-    }
-  ]
+                    "color": "#6B7280",
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      },
+    },
+  ],
 };
 
 // ─── App ──────────────────────────────────────────────────────────────────────

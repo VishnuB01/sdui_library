@@ -63,7 +63,7 @@ const Map<String, dynamic> profileCardJson = {
                 {
                   "widget": "Text",
                   "properties": {
-                    "data": "Alex Johnson",
+                    "data": "Vishnu Prakash",
                     "fontSize": 22,
                     "fontWeight": "bold",
                     "color": "#FFFFFF",

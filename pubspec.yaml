@@ -1,15 +1,19 @@
 name: sdui_library
-description: "A new Flutter package project."
-version: 0.0.1
+description: "Server-Driven UI library for Flutter — render widgets from JSON and export widget trees to JSON via CLI."
+version: 0.1.0
 homepage:
 
 environment:
   sdk: ^3.11.5
   flutter: ">=1.17.0"
 
+executables:
+  sdui: sdui
+
 dependencies:
   flutter:
     sdk: flutter
+  path: ^1.9.1
 
 dev_dependencies:
   flutter_test:

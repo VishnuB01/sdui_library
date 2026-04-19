@@ -1,0 +1,13 @@
+{
+  "widget": "Container",
+  "properties": {
+    "height": 100.0,
+    "width": 100.0
+  },
+  "child": {
+    "widget": "Text",
+    "properties": {
+      "data": "Hello widget"
+    }
+  }
+}

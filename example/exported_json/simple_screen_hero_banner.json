@@ -1,0 +1,72 @@
+{
+  "widget": "Container",
+  "properties": {
+    "color": "#3F51B5",
+    "padding": {
+      "horizontal": 24,
+      "vertical": 40
+    }
+  },
+  "child": {
+    "widget": "Column",
+    "properties": {
+      "crossAxisAlignment": "start"
+    },
+    "children": [
+      {
+        "widget": "Row",
+        "properties": {
+          "mainAxisAlignment": "spaceBetween"
+        },
+        "children": [
+          {
+            "widget": "Text",
+            "properties": {
+              "data": "Good morning ðŸ‘‹",
+              "fontSize": 14.0,
+              "color": "#C5CAE9",
+              "fontWeight": "w400"
+            }
+          },
+          {
+            "widget": "Icon",
+            "properties": {
+              "icon": "notifications_none",
+              "color": "Colors.white",
+              "size": 24.0
+            }
+          }
+        ]
+      },
+      {
+        "widget": "Container",
+        "properties": {
+          "height": 8.0
+        }
+      },
+      {
+        "widget": "Text",
+        "properties": {
+          "data": "Hello, SDUI!",
+          "fontSize": 30.0,
+          "color": "#FFFFFF",
+          "fontWeight": "bold"
+        }
+      },
+      {
+        "widget": "Container",
+        "properties": {
+          "height": 4.0
+        }
+      },
+      {
+        "widget": "Text",
+        "properties": {
+          "data": "Build UI from JSON â€” fast.",
+          "fontSize": 14.0,
+          "color": "#C5CAE9"
+        }
+      }
+    ]
+  }
+}

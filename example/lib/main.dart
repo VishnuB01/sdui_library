@@ -1,9 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:sdui_library/sdui_library.dart';
+import 'custom_widget_demo.dart';
+import 'sdui_widgets/sdui_custom_widgets.dart';
 
 void main() {
-  // Register a custom widget before running
+  // Register custom widgets scaffolded by `dart run sdui add-widget`.
+  registerCustomWidgets();
+
+  // Register an inline custom widget (old-style, still supported).
   SduiParser.registerWidget('MyBadge', (json) {
     final props = (json['properties'] as Map<String, dynamic>?) ?? {};
     final label = props['label'] as String? ?? '';
@@ -443,7 +448,49 @@ class SduiExampleApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),
-      home: const SduiDemoPage(),
+      home: const _RootNav(),
+    );
+  }
+}
+
+class _RootNav extends StatefulWidget {
+  const _RootNav();
+
+  @override
+  State<_RootNav> createState() => _RootNavState();
+}
+
+class _RootNavState extends State<_RootNav> {
+  int _index = 0;
+
+  static const _pages = [
+    SduiDemoPage(),
+    CustomWidgetDemoPage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: IndexedStack(index: _index, children: _pages),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _index,
+        onDestinationSelected: (i) => setState(() => _index = i),
+        backgroundColor: Colors.white,
+        indicatorColor: const Color(0xFFEDE9FE),
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.widgets_outlined),
+            selectedIcon: Icon(Icons.widgets_rounded, color: Color(0xFF6C63FF)),
+            label: 'SDUI Demo',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.extension_outlined),
+            selectedIcon:
+                Icon(Icons.extension_rounded, color: Color(0xFF6C63FF)),
+            label: 'Custom Widget',
+          ),
+        ],
+      ),
     );
   }
 }

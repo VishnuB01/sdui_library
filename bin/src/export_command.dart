@@ -80,7 +80,12 @@ class ExportCommand {
     );
     if (!outputDir.existsSync()) outputDir.createSync(recursive: true);
 
-    final outputFile = File(p.join(outputDir.path, '$fileName.json'));
+    // Use  <fileName>_<keyValue>.json  for partial/widget exports so each
+    // sub-tree gets its own file.  When the key matches the file name (i.e.
+    // the user is exporting the whole screen) keep the simpler <fileName>.json.
+    final outputBasename =
+        (keyValue == fileName) ? '$fileName.json' : '${fileName}_$keyValue.json';
+    final outputFile = File(p.join(outputDir.path, outputBasename));
     outputFile.writeAsStringSync(prettyJson);
 
     // ── 6. Success banner ─────────────────────────────────────────────────────

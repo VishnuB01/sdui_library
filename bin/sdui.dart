@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'src/add_widget_command.dart';
 import 'src/export_command.dart';
 
 /// SDUI CLI entry point.
@@ -51,6 +52,14 @@ void main(List<String> args) {
         keyValue: args[2],
       ).run();
 
+    case 'add-widget':
+      if (args.length < 2) {
+        stderr.writeln('\n  ✗  Missing widget name for "add-widget" command.\n');
+        _printUsage();
+        exit(1);
+      }
+      AddWidgetCommand(widgetName: args[1]).run();
+
     case '--help':
     case '-h':
       _printUsage();
@@ -65,8 +74,14 @@ void main(List<String> args) {
 void _printUsage() {
   stdout.writeln('''
 ╔══════════════════════════════════════════════════════╗
-║              SDUI CLI — Widget to JSON               ║
+║              SDUI CLI — Widget Tooling               ║
 ╚══════════════════════════════════════════════════════╝
+
+Commands:
+  export        Export a DSL widget tree to JSON.
+  add-widget    Scaffold a custom widget inside your project.
+
+── export ───────────────────────────────────────────────
 
 Usage:
   dart run sdui export <file_name> <key_value>
@@ -84,5 +99,23 @@ Examples:
   dart run sdui export home_screen home_screen
   dart run sdui export home_screen hero_box
   dart run sdui export product_card price_section
+
+── add-widget ───────────────────────────────────────────
+
+Usage:
+  dart run sdui add-widget <WidgetName>
+
+Arguments:
+  WidgetName  PascalCase name of your custom widget.
+
+Generates:
+  lib/sdui_widgets/<snake_name>/<snake_name>_encoder.dart
+  lib/sdui_widgets/<snake_name>/<snake_name>_builder.dart
+  lib/sdui_widgets/sdui_custom_widgets.dart  (created or updated)
+
+Examples:
+  dart run sdui add-widget RatingStars
+  dart run sdui add-widget ProfileCard
+  dart run sdui add-widget AnimatedBanner
 ''');
 }

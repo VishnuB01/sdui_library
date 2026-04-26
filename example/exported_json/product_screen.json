@@ -1,0 +1,115 @@
+{
+  "widget": "Column",
+  "properties": {
+    "crossAxisAlignment": "start"
+  },
+  "children": [
+    {
+      "widget": "Text",
+      "properties": {
+        "data": "Reviews",
+        "fontSize": 18.0,
+        "color": "#424242",
+        "fontWeight": "bold"
+      }
+    },
+    {
+      "widget": "Container",
+      "properties": {
+        "height": 10.0
+      }
+    },
+    {
+      "widget": "Container",
+      "properties": {
+        "color": "#FFFFFF",
+        "padding": {
+          "all": 14
+        },
+        "borderRadius": 14
+      },
+      "child": {
+        "widget": "Column",
+        "properties": {
+          "crossAxisAlignment": "start"
+        },
+        "children": [
+          {
+            "widget": "Row",
+            "properties": {
+              "mainAxisAlignment": "spaceBetween"
+            },
+            "children": [
+              {
+                "widget": "Row",
+                "properties": {},
+                "children": [
+                  {
+                    "widget": "Container",
+                    "properties": {
+                      "height": 36.0,
+                      "width": 36.0,
+                      "color": "#3F51B5",
+                      "borderRadius": 18
+                    },
+                    "child": {
+                      "widget": "Center",
+                      "properties": {},
+                      "child": {
+                        "widget": "Text",
+                        "properties": {
+                          "data": "S",
+                          "fontSize": 16.0,
+                          "color": "#FFFFFF",
+                          "fontWeight": "bold"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "widget": "Container",
+                    "properties": {
+                      "width": 10.0
+                    }
+                  },
+                  {
+                    "widget": "Text",
+                    "properties": {
+                      "data": "Sarah K.",
+                      "fontSize": 14.0,
+                      "color": "#212121",
+                      "fontWeight": "w600"
+                    }
+                  }
+                ]
+              },
+              {
+                "widget": "RatingStars",
+                "properties": {
+                  "rating": 5.0,
+                  "maxStars": 5,
+                  "starColor": "#F59E0B",
+                  "size": 16.0
+                }
+              }
+            ]
+          },
+          {
+            "widget": "Container",
+            "properties": {
+              "height": 8.0
+            }
+          },
+          {
+            "widget": "Text",
+            "properties": {
+              "data": "Incredible sound quality! Worth every penny.",
+              "fontSize": 13.0,
+              "color": "#757575"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

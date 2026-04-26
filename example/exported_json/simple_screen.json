@@ -1,0 +1,259 @@
+{
+  "widget": "Column",
+  "properties": {
+    "mainAxisAlignment": "start"
+  },
+  "children": [
+    {
+      "widget": "Container",
+      "properties": {
+        "color": "#3F51B5",
+        "padding": {
+          "horizontal": 24,
+          "vertical": 40
+        }
+      },
+      "child": {
+        "widget": "Column",
+        "properties": {
+          "crossAxisAlignment": "start"
+        },
+        "children": [
+          {
+            "widget": "Row",
+            "properties": {
+              "mainAxisAlignment": "spaceBetween"
+            },
+            "children": [
+              {
+                "widget": "Text",
+                "properties": {
+                  "data": "Good morning ðŸ‘‹",
+                  "fontSize": 14.0,
+                  "color": "#C5CAE9",
+                  "fontWeight": "w400"
+                }
+              },
+              {
+                "widget": "Icon",
+                "properties": {
+                  "icon": "notifications_none",
+                  "color": "Colors.white",
+                  "size": 24.0
+                }
+              }
+            ]
+          },
+          {
+            "widget": "Container",
+            "properties": {
+              "height": 8.0
+            }
+          },
+          {
+            "widget": "Text",
+            "properties": {
+              "data": "Hello, SDUI!",
+              "fontSize": 30.0,
+              "color": "#FFFFFF",
+              "fontWeight": "bold"
+            }
+          },
+          {
+            "widget": "Container",
+            "properties": {
+              "height": 4.0
+            }
+          },
+          {
+            "widget": "Text",
+            "properties": {
+              "data": "Build UI from JSON â€” fast.",
+              "fontSize": 14.0,
+              "color": "#C5CAE9"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "widget": "Padding",
+      "properties": {
+        "padding": {
+          "horizontal": 16,
+          "vertical": 20
+        }
+      },
+      "child": {
+        "widget": "Card",
+        "properties": {
+          "elevation": 3.0,
+          "borderRadius": 16
+        },
+        "child": {
+          "widget": "Container",
+          "properties": {
+            "padding": {
+              "horizontal": 20,
+              "vertical": 20
+            }
+          },
+          "child": {
+            "widget": "Column",
+            "properties": {
+              "crossAxisAlignment": "start"
+            },
+            "children": [
+              {
+                "widget": "Row",
+                "properties": {},
+                "children": [
+                  {
+                    "widget": "Container",
+                    "properties": {
+                      "height": 44.0,
+                      "width": 44.0,
+                      "color": "#E8EAF6",
+                      "borderRadius": 12
+                    },
+                    "child": {
+                      "widget": "Center",
+                      "properties": {},
+                      "child": {
+                        "widget": "Icon",
+                        "properties": {
+                          "icon": "info_outline",
+                          "color": "Colors.indigo",
+                          "size": 24.0
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "widget": "Container",
+                    "properties": {
+                      "width": 14.0
+                    }
+                  },
+                  {
+                    "widget": "Column",
+                    "properties": {
+                      "crossAxisAlignment": "start"
+                    },
+                    "children": [
+                      {
+                        "widget": "Text",
+                        "properties": {
+                          "data": "What is SDUI?",
+                          "fontSize": 16.0,
+                          "color": "#1A237E",
+                          "fontWeight": "bold"
+                        }
+                      },
+                      {
+                        "widget": "Text",
+                        "properties": {
+                          "data": "Server-Driven UI for Flutter",
+                          "fontSize": 12.0,
+                          "color": "#5C6BC0"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "widget": "Container",
+                "properties": {
+                  "height": 16.0
+                }
+              },
+              {
+                "widget": "Text",
+                "properties": {
+                  "data": "Define your widget tree in Dart, export it to JSON with the CLI, serve it from your API, and render it dynamically in Flutter â€” no app update needed.",
+                  "fontSize": 13.0,
+                  "color": "#374151",
+                  "height": 1.6
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "widget": "Padding",
+      "properties": {
+        "padding": {
+          "horizontal": 16
+        }
+      },
+      "child": {
+        "widget": "ElevatedButton",
+        "properties": {
+          "label": "Export This Screen to JSON",
+          "labelColor": "#FFFFFF",
+          "backgroundColor": "#3F51B5",
+          "borderRadius": 14,
+          "fontSize": 15.0,
+          "fontWeight": "bold",
+          "padding": {
+            "horizontal": 24,
+            "vertical": 16
+          }
+        },
+        "icon": {
+          "widget": "Icon",
+          "properties": {
+            "icon": "download",
+            "color": "Colors.white",
+            "size": 18.0
+          }
+        },
+        "onTap": {
+          "type": "navigate",
+          "payload": {
+            "route": "/export"
+          }
+        }
+      }
+    },
+    {
+      "widget": "Container",
+      "properties": {
+        "height": 12.0
+      }
+    },
+    {
+      "widget": "Padding",
+      "properties": {
+        "padding": {
+          "horizontal": 16
+        }
+      },
+      "child": {
+        "widget": "TextButton",
+        "properties": {
+          "label": "View JSON Output",
+          "labelColor": "#3F51B5",
+          "fontSize": 14.0
+        },
+        "icon": {
+          "widget": "Icon",
+          "properties": {
+            "icon": "code",
+            "color": "Colors.indigo",
+            "size": 16.0
+          }
+        },
+        "onTap": {
+          "type": "navigate",
+          "payload": {
+            "route": "/json_viewer"
+          }
+        }
+      }
+    }
+  ]
+}

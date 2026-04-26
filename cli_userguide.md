@@ -1,130 +1,144 @@
 # SDUI CLI User Guide
 
-This guide explains how to use the SDUI (Server-Driven UI) CLI tool to export Flutter-like widget definitions written in Dart into pure JSON format. This JSON can then be served from your backend to render UI dynamically in your Flutter app using the `sdui_library`.
+The SDUI CLI is a developer tool bundled with `sdui_library` that lets you:
+
+1. **Export** — Serialize Flutter-like widget trees defined in Dart into SDUI-compatible JSON, ready to be served from your backend.
+2. **Scaffold** — Generate boilerplate for custom widgets that don't exist in the library, so they can be exported to JSON and rendered back from JSON in your app.
 
 ---
 
-## 1. Creating a DSL Definitions File
+## Table of Contents
 
-Create standard `.dart` files anywhere under your `lib/` directory (for example, `lib/screens/home_screen.dart`). 
+1. [Running the CLI](#running-the-cli)
+2. [Command: `export`](#command-export)
+3. [Command: `add-widget`](#command-add-widget)
+4. [Working with Custom Widgets — end-to-end](#working-with-custom-widgets--end-to-end)
+5. [Tips & Rules of Thumb](#tips--rules-of-thumb)
 
-You can write standard Flutter code! We implemented a build-time interceptor so you can structure your layouts exactly as you already do in Flutter, getting full IDE support and hot-reload previews.
+---
 
-> **Important**: The CLI will automatically swap `package:flutter/material.dart` with our mock DSL package during export. Ensure you only use widgets supported by the SDUI parser and rely on `StatelessWidget`.
+## Running the CLI
 
-### Example: `lib/screens/home_screen.dart`
+The command differs depending on **where** you run it from:
 
-```dart
-// You can use standard Flutter imports!
-import 'package:flutter/material.dart';
+| Context | Command prefix |
+|---|---|
+| Inside the `sdui_library` package itself | `dart run sdui` |
+| Inside **your own Flutter project** (recommended) | `dart run sdui_library:sdui` |
 
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      key: Key('home_screen'), // Targeted by the CLI
-      mainAxisAlignment: 'start',
-      children: [
-        Container(
-          key: Key('hero_card'), // You can target nested keys too!
-          height: 220,
-          color: 'Colors.indigo', // Note: Colors are passed as strings
-          borderRadius: {'tl': 0, 'tr': 0, 'bl': 32, 'br': 32},
-          padding: {'horizontal': 24, 'vertical': 32},
-          child: Column(
-            mainAxisAlignment: 'center',
-            crossAxisAlignment: 'start',
-            children: [
-              Text(
-                'Welcome back 👋',
-                fontSize: 14,
-                color: 'Colors.white70',
-                fontWeight: 'w400',
-              ),
-              Container(height: 8),
-              Text(
-                'Build. Export. Ship.',
-                fontSize: 28,
-                color: 'Colors.white',
-                fontWeight: 'bold',
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: {'horizontal': 16, 'vertical': 20},
-          child: ElevatedButton(
-            label: 'Get Started',
-            backgroundColor: 'Colors.indigo',
-            labelColor: 'Colors.white',
-            borderRadius: 12,
-            onTap: SduiAction(
-              type: 'navigate',
-              payload: {'route': '/home'},
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
+> All examples in this guide use `dart run sdui_library:sdui`, which is the normal usage when `sdui_library` is a dependency in your `pubspec.yaml`.
+
+### See all available commands
+
+```bash
+dart run sdui_library:sdui --help
+```
+
+```
+╔══════════════════════════════════════════════════════╗
+║              SDUI CLI — Widget Tooling               ║
+╚══════════════════════════════════════════════════════╝
+
+Commands:
+  export        Export a DSL widget tree to JSON.
+  add-widget    Scaffold a custom widget inside your project.
+
+── export ───────────────────────────────────────────────
+
+Usage:
+  dart run sdui_library:sdui export <file_name> <key_value>
+...
+
+── add-widget ───────────────────────────────────────────
+
+Usage:
+  dart run sdui_library:sdui add-widget <WidgetName>
+...
 ```
 
 ---
 
-## 2. Using the Export Command
+## Command: `export`
 
-The CLI extracts a widget structure based on its `Key` value and outputs it directly into a new JSON file inside the `exported_json/` directory.
+Finds a DSL file in your `lib/` folder, evaluates it, and serializes the widget tagged with the given `Key(...)` to a pretty-printed JSON file.
 
-### Command Structure
+### Syntax
 
 ```bash
 dart run sdui_library:sdui export <file_name> <key_value>
 ```
 
-- `<file_name>`: The name of your dart file containing the definitions (without '.dart'). The CLI automatically searches your `lib/` directory for this file.
-- `<key_value>`: The string value you gave to your `Key('...')`.
+| Argument | Description |
+|---|---|
+| `file_name` | Name of your Dart DSL file, **without** the `.dart` extension. The CLI searches recursively under `lib/`. |
+| `key_value` | The string you passed to `Key('...')` on the widget you want to export. |
 
-*(Note: If you are actively modifying the `sdui_library` source code yourself, you should run `dart run bin/sdui.dart export <file_name> <key_value>` instead)*
+**Output:** `exported_json/<file_name>.json`
 
-### Example Execution
+---
 
-If we want to export the entire home screen:
-```bash
-dart run sdui_library:sdui export home_screen home_screen
+### Step 1 — Write a DSL file under `lib/`
+
+Create a Dart file anywhere inside your `lib/` directory. You can use either:
+- `package:sdui_library/sdui_dsl.dart` (recommended — pure Dart, Flutter-free)
+- Standard `package:flutter/material.dart` imports (the CLI swaps these automatically)
+
+> **Important:** Top-level variables must have a real name (not `_`). The CLI references them by name to force lazy initialisation. Variables named `_` are skipped.
+
+**✓ Correct:**
+```dart
+// lib/screens/home_screen.dart
+import 'package:sdui_library/sdui_dsl.dart';
+
+final homeScreen = Column(   // ← named variable, CLI can touch it
+  key: Key('home_screen'),
+  children: [
+    Container(
+      key: Key('hero_card'),
+      height: 220,
+      color: 'Colors.indigo',
+      child: Text('Welcome back 👋', fontSize: 28, color: 'Colors.white'),
+    ),
+  ],
+);
 ```
 
-Or, if we only wanted to export the specific hero card component, we target its unique key:
-```bash
-dart run sdui_library:sdui export home_screen hero_card
-```
-
-### CLI Output
-
-When the command completes successfully, you will see output similar to this:
-
-```text
-  🔍  Searching for "home_screen.dart" under lib/ ...
-     Found: D:\flutter projects\pub_packages\sdui_library\lib\screens\home_screen.dart
-  📝  Generated runner at D:\flutter projects\pub_packages\sdui_library\.dart_tool\sdui_runner.dart
-  ⚙️   Running export for key "home_screen" ...
-
-╔══════════════════════════════════════════════════════╗
-║  ✓  Export successful!                               ║
-╚══════════════════════════════════════════════════════╝
-  Key      : "home_screen"
-  Source   : D:\flutter projects\pub_packages\sdui_library\lib\screens\home_screen.dart
-  Output   : D:\flutter projects\pub_packages\sdui_library\exported_json\home_screen.json
-  Size     : 14253 characters
+**✗ Wrong — CLI will skip this:**
+```dart
+final _ = Column(key: Key('home_screen'), ...);  // ← _ is not referenceable
 ```
 
 ---
 
-## 3. The Generated Output
+### Step 2 — Run the export
 
-The tool will automatically create a cleanly-formatted JSON file ready to be served by your API.
+Export the **full screen** (widget tagged `Key('home_screen')`):
+```bash
+dart run sdui_library:sdui export home_screen home_screen
+```
 
-**Example Output:** `exported_json/home_screen.json`
+Export just the **hero card** subtree (widget tagged `Key('hero_card')`):
+```bash
+dart run sdui_library:sdui export home_screen hero_card
+```
+
+You can have **multiple `Key(...)` values** in the same file and export them individually. Each export overwrites `exported_json/<file_name>.json` with the chosen subtree.
+
+---
+
+### Step 3 — Inspect the output
+
+```
+╔══════════════════════════════════════════════════════╗
+║  ✓  Export successful!                               ║
+╚══════════════════════════════════════════════════════╝
+  Key      : "home_screen"
+  Source   : lib/screens/home_screen.dart
+  Output   : exported_json/home_screen.json
+  Size     : 1423 characters
+```
+
+**Example `exported_json/home_screen.json`:**
 ```json
 {
   "widget": "Column",
@@ -137,72 +151,16 @@ The tool will automatically create a cleanly-formatted JSON file ready to be ser
       "properties": {
         "height": 220,
         "color": "#3F51B5",
-        "padding": {
-          "horizontal": 24,
-          "vertical": 32
-        },
-        "borderRadius": {
-          "tl": 0,
-          "tr": 0,
-          "bl": 32,
-          "br": 32
-        }
+        "borderRadius": { "tl": 0, "tr": 0, "bl": 32, "br": 32 },
+        "padding": { "horizontal": 24, "vertical": 32 }
       },
       "child": {
-        "widget": "Column",
+        "widget": "Text",
         "properties": {
-          "mainAxisAlignment": "center",
-          "crossAxisAlignment": "start"
-        },
-        "children": [
-          {
-            "widget": "Text",
-            "properties": {
-              "data": "Welcome back 👋",
-              "fontSize": 14,
-              "color": "#B3FFFFFF",
-              "fontWeight": "w400"
-            }
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "height": 8
-            }
-          },
-          {
-            "widget": "Text",
-            "properties": {
-              "data": "Build. Export. Ship.",
-              "fontSize": 28,
-              "color": "#FFFFFF",
-              "fontWeight": "bold"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "widget": "Padding",
-      "properties": {
-        "padding": {
-          "horizontal": 16,
-          "vertical": 20
-        }
-      },
-      "child": {
-        "widget": "ElevatedButton",
-        "properties": {
-          "label": "Get Started",
-          "labelColor": "#FFFFFF",
-          "backgroundColor": "#3F51B5",
-          "borderRadius": 12
-        },
-        "onTap": {
-          "type": "navigate",
-          "payload": {
-            "route": "/home"
-          }
+          "data": "Welcome back 👋",
+          "fontSize": 28,
+          "color": "#FFFFFF",
+          "fontWeight": "bold"
         }
       }
     }
@@ -210,4 +168,235 @@ The tool will automatically create a cleanly-formatted JSON file ready to be ser
 }
 ```
 
-This output utilizes the framework's native `Color` maps (converting `Colors.indigo` to `#3F51B5`) and cleanly exports custom `Actions` perfectly inline with the parent `sdui_library` structure.
+> Colors are automatically resolved: `'Colors.indigo'` → `"#3F51B5"`, `'Colors.white70'` → `"#B3FFFFFF"`, etc.
+
+---
+
+## Command: `add-widget`
+
+Scaffolds a custom widget inside **your** project when a widget type doesn't exist in the `sdui_library` built-ins (e.g. `RatingStars`, `ProfileCard`, `AnimatedBanner`).
+
+### Syntax
+
+```bash
+dart run sdui_library:sdui add-widget <WidgetName>
+```
+
+| Argument | Description |
+|---|---|
+| `WidgetName` | PascalCase class name for your widget, e.g. `RatingStars`, `ProfileCard`. |
+
+**Generates (inside your project's `lib/sdui_widgets/`):**
+
+```
+lib/
+└── sdui_widgets/
+    ├── sdui_custom_widgets.dart             ← barrel file (created or updated)
+    └── <snake_name>/
+        ├── <snake_name>_encoder.dart        ← DSL node (pure Dart, no Flutter)
+        └── <snake_name>_builder.dart        ← Runtime builder (Flutter, JSON → Widget)
+```
+
+---
+
+### Step 1 — Scaffold the widget
+
+```bash
+dart run sdui_library:sdui add-widget RatingStars
+```
+
+```
+╔══════════════════════════════════════════════════════╗
+║  ✓  Widget scaffolded successfully!                  ║
+╚══════════════════════════════════════════════════════╝
+  Widget   : RatingStars
+  Location : lib/sdui_widgets/rating_stars/
+
+  Generated files:
+    lib/sdui_widgets/rating_stars/rating_stars_encoder.dart
+    lib/sdui_widgets/rating_stars/rating_stars_builder.dart
+    lib/sdui_widgets/sdui_custom_widgets.dart
+```
+
+Running it a **second time** for a different widget updates the barrel automatically:
+```bash
+dart run sdui_library:sdui add-widget ProfileCard
+# → lib/sdui_widgets/sdui_custom_widgets.dart now registers both widgets
+```
+
+---
+
+### Step 2 — Implement the encoder
+
+Open `lib/sdui_widgets/rating_stars/rating_stars_encoder.dart`. Replace the placeholder `label` property with your real widget fields. This file must stay **Flutter-free** — it runs in a plain Dart VM.
+
+```dart
+// lib/sdui_widgets/rating_stars/rating_stars_encoder.dart
+import 'package:sdui_library/sdui_dsl.dart';
+
+class RatingStars extends SduiNode {
+  final double rating;
+  final int maxStars;
+  final String? starColor;
+  final double? size;
+
+  RatingStars({
+    super.key,
+    required this.rating,
+    this.maxStars = 5,
+    this.starColor,
+    this.size,
+  });
+
+  @override
+  Map<String, dynamic> toJson() => {
+        'widget': 'RatingStars',
+        'properties': {
+          'rating': rating,
+          'maxStars': maxStars,
+          if (starColor != null) 'starColor': starColor,
+          if (size != null) 'size': size,
+        },
+      };
+}
+```
+
+---
+
+### Step 3 — Implement the builder
+
+Open `lib/sdui_widgets/rating_stars/rating_stars_builder.dart`. Replace the `Text(label)` placeholder with your real Flutter widget:
+
+```dart
+// lib/sdui_widgets/rating_stars/rating_stars_builder.dart
+import 'package:flutter/material.dart';
+
+class RatingStarsBuilder {
+  RatingStarsBuilder._();
+
+  static Widget fromJson(Map<String, dynamic> json) {
+    final props = (json['properties'] as Map<String, dynamic>?) ?? {};
+    final rating = (props['rating'] as num?)?.toDouble() ?? 0.0;
+    final maxStars = (props['maxStars'] as int?) ?? 5;
+    final size = (props['size'] as num?)?.toDouble() ?? 22.0;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: List.generate(maxStars, (i) => Icon(
+        i < rating.floor() ? Icons.star_rounded : Icons.star_outline_rounded,
+        color: const Color(0xFFF59E0B),
+        size: size,
+      )),
+    );
+  }
+}
+```
+
+---
+
+### Step 4 — Register at app startup
+
+Import the barrel file once in `main.dart` and call `registerCustomWidgets()` before `runApp`:
+
+```dart
+// main.dart
+import 'package:your_app/sdui_widgets/sdui_custom_widgets.dart';
+
+void main() {
+  registerCustomWidgets();   // ← registers all scaffolded widgets
+  runApp(MyApp());
+}
+```
+
+`sdui_custom_widgets.dart` is managed by the CLI — every new `add-widget` call appends to it automatically. You never need to edit it manually.
+
+---
+
+### Step 5 — Use in DSL files and export
+
+```dart
+// lib/screens/product_screen.dart
+import 'package:sdui_library/sdui_dsl.dart';
+import 'sdui_widgets/rating_stars/rating_stars_encoder.dart';
+
+final productScreen = Column(
+  key: Key('product_screen'),
+  children: [
+    Text('Pro Headphones', fontSize: 22, fontWeight: 'bold'),
+    RatingStars(
+      key: Key('product_rating'),  // ← can be exported independently
+      rating: 4.5,
+      maxStars: 5,
+      starColor: '#F59E0B',
+    ),
+  ],
+);
+```
+
+```bash
+dart run sdui_library:sdui export product_screen product_screen
+dart run sdui_library:sdui export product_screen product_rating
+```
+
+---
+
+### Step 6 — Render from JSON at runtime
+
+Once registered, `SduiParser` resolves `"widget": "RatingStars"` automatically:
+
+```dart
+final json = {
+  "widget": "RatingStars",
+  "properties": { "rating": 4.5, "maxStars": 5 }
+};
+
+Widget ui = SduiParser.buildWidget(json);
+```
+
+---
+
+## Working with Custom Widgets — end-to-end
+
+Here is the full journey for a `RatingStars` widget from zero to rendered:
+
+```
+1. dart run sdui_library:sdui add-widget RatingStars
+         ↓
+   lib/sdui_widgets/rating_stars/rating_stars_encoder.dart  (edit this)
+   lib/sdui_widgets/rating_stars/rating_stars_builder.dart  (edit this)
+   lib/sdui_widgets/sdui_custom_widgets.dart                (auto-managed)
+
+2. Edit encoder  →  define real properties (pure Dart, no Flutter imports)
+3. Edit builder  →  return a real Flutter Widget from the JSON properties
+
+4. main.dart:
+   import 'sdui_widgets/sdui_custom_widgets.dart';
+   void main() { registerCustomWidgets(); runApp(MyApp()); }
+
+5. lib/screens/product_screen.dart:
+   import 'package:sdui_library/sdui_dsl.dart';
+   import 'sdui_widgets/rating_stars/rating_stars_encoder.dart';
+   final productScreen = Column(
+     key: Key('product_screen'),
+     children: [ RatingStars(key: Key('stars'), rating: 4.5) ],
+   );
+
+6. dart run sdui_library:sdui export product_screen stars
+         ↓
+   exported_json/product_screen.json
+
+7. Serve JSON from your API → SduiParser.buildWidget(json) renders it ✓
+```
+
+---
+
+## Tips & Rules of Thumb
+
+| Rule | Why |
+|---|---|
+| DSL files must live under `lib/` | The CLI only searches recursively inside `lib/` |
+| Top-level variables must be named (not `_`) | `_` is skipped — the CLI can't reference it to trigger lazy init |
+| Encoder files must be Flutter-free | They run in a plain Dart VM, not a Flutter environment |
+| Call `registerCustomWidgets()` before `runApp` | The registry must be populated before any JSON is parsed |
+| Each `add-widget` call is idempotent | Re-running it on an existing widget name skips existing files |
+| One JSON file per DSL file | Multiple exports of the same file overwrite `exported_json/<file_name>.json` |

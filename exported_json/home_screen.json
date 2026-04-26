@@ -1,521 +1,80 @@
 {
-  "widget": "Column",
+  "widget": "Container",
   "properties": {
-    "mainAxisAlignment": "start"
-  },
-  "children": [
-    {
-      "widget": "Container",
-      "properties": {
-        "height": 220.0,
-        "color": "#3F51B5",
-        "padding": {
-          "horizontal": 24,
-          "vertical": 32
-        },
-        "borderRadius": {
-          "tl": 0,
-          "tr": 0,
-          "bl": 32,
-          "br": 32
-        }
-      },
-      "child": {
-        "widget": "Column",
-        "properties": {
-          "mainAxisAlignment": "center",
-          "crossAxisAlignment": "start"
-        },
-        "children": [
-          {
-            "widget": "Row",
-            "properties": {
-              "mainAxisAlignment": "spaceBetween"
-            },
-            "children": [
-              {
-                "widget": "Text",
-                "properties": {
-                  "data": "Welcome back ðŸ‘‹",
-                  "fontSize": 14.0,
-                  "color": "#B3FFFFFF",
-                  "fontWeight": "w400"
-                }
-              },
-              {
-                "widget": "Icon",
-                "properties": {
-                  "icon": "notifications",
-                  "color": "Colors.white",
-                  "size": 24.0
-                }
-              }
-            ]
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "height": 8.0
-            }
-          },
-          {
-            "widget": "Text",
-            "properties": {
-              "data": "Flutter Dev",
-              "fontSize": 28.0,
-              "color": "#FFFFFF",
-              "fontWeight": "bold"
-            }
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "height": 4.0
-            }
-          },
-          {
-            "widget": "Text",
-            "properties": {
-              "data": "Build. Export. Ship.",
-              "fontSize": 14.0,
-              "color": "#B3FFFFFF"
-            }
-          }
-        ]
-      }
+    "height": 220.0,
+    "color": "#3F51B5",
+    "padding": {
+      "horizontal": 24,
+      "vertical": 32
     },
-    {
-      "widget": "Padding",
-      "properties": {
-        "padding": {
-          "horizontal": 16,
-          "vertical": 20
-        }
-      },
-      "child": {
+    "borderRadius": {
+      "tl": 0,
+      "tr": 0,
+      "bl": 32,
+      "br": 32
+    }
+  },
+  "child": {
+    "widget": "Column",
+    "properties": {
+      "mainAxisAlignment": "center",
+      "crossAxisAlignment": "start"
+    },
+    "children": [
+      {
         "widget": "Row",
         "properties": {
           "mainAxisAlignment": "spaceBetween"
         },
         "children": [
           {
-            "widget": "Column",
-            "properties": {},
-            "children": [
-              {
-                "widget": "Container",
-                "properties": {
-                  "color": "Colors.indigo.shade50",
-                  "padding": {
-                    "horizontal": 16,
-                    "vertical": 12
-                  },
-                  "borderRadius": 12
-                },
-                "child": {
-                  "widget": "Column",
-                  "properties": {
-                    "mainAxisAlignment": "center"
-                  },
-                  "children": [
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "12",
-                        "fontSize": 22.0,
-                        "color": "#424242",
-                        "fontWeight": "bold"
-                      }
-                    },
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "Screens",
-                        "fontSize": 11.0,
-                        "color": "#757575"
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "widget": "Column",
-            "properties": {},
-            "children": [
-              {
-                "widget": "Container",
-                "properties": {
-                  "color": "Colors.teal.shade50",
-                  "padding": {
-                    "horizontal": 16,
-                    "vertical": 12
-                  },
-                  "borderRadius": 12
-                },
-                "child": {
-                  "widget": "Column",
-                  "properties": {
-                    "mainAxisAlignment": "center"
-                  },
-                  "children": [
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "48",
-                        "fontSize": 22.0,
-                        "color": "#424242",
-                        "fontWeight": "bold"
-                      }
-                    },
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "Components",
-                        "fontSize": 11.0,
-                        "color": "#757575"
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "widget": "Column",
-            "properties": {},
-            "children": [
-              {
-                "widget": "Container",
-                "properties": {
-                  "color": "Colors.amber.shade50",
-                  "padding": {
-                    "horizontal": 16,
-                    "vertical": 12
-                  },
-                  "borderRadius": 12
-                },
-                "child": {
-                  "widget": "Column",
-                  "properties": {
-                    "mainAxisAlignment": "center"
-                  },
-                  "children": [
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "5",
-                        "fontSize": 22.0,
-                        "color": "#424242",
-                        "fontWeight": "bold"
-                      }
-                    },
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "Exports",
-                        "fontSize": 11.0,
-                        "color": "#757575"
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "widget": "Padding",
-      "properties": {
-        "padding": {
-          "horizontal": 16
-        }
-      },
-      "child": {
-        "widget": "Column",
-        "properties": {},
-        "children": [
-          {
-            "widget": "ElevatedButton",
-            "properties": {
-              "label": "Export New Screen",
-              "labelColor": "#FFFFFF",
-              "backgroundColor": "#3F51B5",
-              "borderRadius": 12,
-              "fontSize": 16.0,
-              "fontWeight": "bold",
-              "padding": {
-                "horizontal": 24,
-                "vertical": 16
-              }
-            },
-            "icon": {
-              "widget": "Icon",
-              "properties": {
-                "icon": "download",
-                "color": "Colors.white",
-                "size": 18.0
-              }
-            },
-            "onTap": {
-              "type": "navigate",
-              "payload": {
-                "route": "/export"
-              }
-            }
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "height": 12.0
-            }
-          },
-          {
-            "widget": "OutlinedButton",
-            "properties": {
-              "label": "View JSON Files",
-              "labelColor": "#3F51B5",
-              "borderColor": "#3F51B5",
-              "borderWidth": 1.5,
-              "borderRadius": 12,
-              "fontSize": 16.0,
-              "padding": {
-                "horizontal": 24,
-                "vertical": 16
-              }
-            },
-            "icon": {
-              "widget": "Icon",
-              "properties": {
-                "icon": "edit",
-                "color": "Colors.indigo",
-                "size": 18.0
-              }
-            },
-            "onTap": {
-              "type": "navigate",
-              "payload": {
-                "route": "/json_files"
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "widget": "Padding",
-      "properties": {
-        "padding": {
-          "horizontal": 16,
-          "vertical": 12
-        }
-      },
-      "child": {
-        "widget": "Column",
-        "properties": {
-          "crossAxisAlignment": "start"
-        },
-        "children": [
-          {
             "widget": "Text",
             "properties": {
-              "data": "Recent Exports",
-              "fontSize": 18.0,
-              "color": "#424242",
-              "fontWeight": "bold"
+              "data": "Welcome back ðŸ‘‹",
+              "fontSize": 14.0,
+              "color": "#B3FFFFFF",
+              "fontWeight": "w400"
             }
           },
           {
-            "widget": "Container",
+            "widget": "Icon",
             "properties": {
-              "height": 12.0
-            }
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "color": "Colors.indigo.shade50",
-              "padding": {
-                "horizontal": 16,
-                "vertical": 12
-              },
-              "borderRadius": 10
-            },
-            "child": {
-              "widget": "Row",
-              "properties": {
-                "mainAxisAlignment": "spaceBetween"
-              },
-              "children": [
-                {
-                  "widget": "Row",
-                  "properties": {},
-                  "children": [
-                    {
-                      "widget": "Icon",
-                      "properties": {
-                        "icon": "home",
-                        "color": "Colors.indigo",
-                        "size": 20.0
-                      }
-                    },
-                    {
-                      "widget": "Container",
-                      "properties": {
-                        "width": 12.0
-                      }
-                    },
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "home_screen.json",
-                        "fontSize": 14.0,
-                        "color": "#424242",
-                        "fontWeight": "w500"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "widget": "Icon",
-                  "properties": {
-                    "icon": "forward",
-                    "color": "Colors.grey",
-                    "size": 18.0
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "height": 8.0
-            }
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "color": "Colors.teal.shade50",
-              "padding": {
-                "horizontal": 16,
-                "vertical": 12
-              },
-              "borderRadius": 10
-            },
-            "child": {
-              "widget": "Row",
-              "properties": {
-                "mainAxisAlignment": "spaceBetween"
-              },
-              "children": [
-                {
-                  "widget": "Row",
-                  "properties": {},
-                  "children": [
-                    {
-                      "widget": "Icon",
-                      "properties": {
-                        "icon": "cart",
-                        "color": "Colors.indigo",
-                        "size": 20.0
-                      }
-                    },
-                    {
-                      "widget": "Container",
-                      "properties": {
-                        "width": 12.0
-                      }
-                    },
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "product_card.json",
-                        "fontSize": 14.0,
-                        "color": "#424242",
-                        "fontWeight": "w500"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "widget": "Icon",
-                  "properties": {
-                    "icon": "forward",
-                    "color": "Colors.grey",
-                    "size": 18.0
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "height": 8.0
-            }
-          },
-          {
-            "widget": "Container",
-            "properties": {
-              "color": "Colors.amber.shade50",
-              "padding": {
-                "horizontal": 16,
-                "vertical": 12
-              },
-              "borderRadius": 10
-            },
-            "child": {
-              "widget": "Row",
-              "properties": {
-                "mainAxisAlignment": "spaceBetween"
-              },
-              "children": [
-                {
-                  "widget": "Row",
-                  "properties": {},
-                  "children": [
-                    {
-                      "widget": "Icon",
-                      "properties": {
-                        "icon": "lock",
-                        "color": "Colors.indigo",
-                        "size": 20.0
-                      }
-                    },
-                    {
-                      "widget": "Container",
-                      "properties": {
-                        "width": 12.0
-                      }
-                    },
-                    {
-                      "widget": "Text",
-                      "properties": {
-                        "data": "login_form.json",
-                        "fontSize": 14.0,
-                        "color": "#424242",
-                        "fontWeight": "w500"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "widget": "Icon",
-                  "properties": {
-                    "icon": "forward",
-                    "color": "Colors.grey",
-                    "size": 18.0
-                  }
-                }
-              ]
+              "icon": "notifications",
+              "color": "Colors.white",
+              "size": 24.0
             }
           }
         ]
+      },
+      {
+        "widget": "Container",
+        "properties": {
+          "height": 8.0
+        }
+      },
+      {
+        "widget": "Text",
+        "properties": {
+          "data": "Flutter Dev",
+          "fontSize": 28.0,
+          "color": "#FFFFFF",
+          "fontWeight": "bold"
+        }
+      },
+      {
+        "widget": "Container",
+        "properties": {
+          "height": 4.0
+        }
+      },
+      {
+        "widget": "Text",
+        "properties": {
+          "data": "Build. Export. Ship.",
+          "fontSize": 14.0,
+          "color": "#B3FFFFFF"
+        }
       }
-    }
-  ]
+    ]
+  }
 }

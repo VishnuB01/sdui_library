@@ -2,18 +2,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../models/sdui_action.dart';
-import '../widgets/button_builder.dart';
-import '../widgets/card_builder.dart';
-import '../widgets/center_builder.dart';
-import '../widgets/column_builder.dart';
-import '../widgets/container_builder.dart';
-import '../widgets/icon_builder.dart';
-import '../widgets/image_builder.dart';
-import '../widgets/listview_builder.dart';
-import '../widgets/padding_builder.dart';
-import '../widgets/row_builder.dart';
-import '../widgets/stack_builder.dart';
-import '../widgets/text_builder.dart';
+import '../renderers/button_builder.dart';
+import '../renderers/card_builder.dart';
+import '../renderers/center_builder.dart';
+import '../renderers/column_builder.dart';
+import '../renderers/container_builder.dart';
+import '../renderers/icon_builder.dart';
+import '../renderers/image_builder.dart';
+import '../renderers/listview_builder.dart';
+import '../renderers/padding_builder.dart';
+import '../renderers/row_builder.dart';
+import '../renderers/stack_builder.dart';
+import '../renderers/text_builder.dart';
 import 'widget_registry.dart';
 
 /// The main SDUI parsing engine.

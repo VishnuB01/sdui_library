@@ -40,29 +40,29 @@
 library sdui_dsl;
 
 // Foundation
-export 'src/dsl/sdui_key.dart';
-export 'src/dsl/sdui_registry.dart';
-export 'src/dsl/sdui_node.dart';
-export 'src/dsl/sdui_action.dart';
-export 'src/dsl/color_resolver.dart';
-export 'src/dsl/stateless_widget.dart';
+export 'src/encoders/sdui_key.dart';
+export 'src/encoders/sdui_registry.dart';
+export 'src/encoders/sdui_node.dart';
+export 'src/encoders/sdui_action.dart';
+export 'src/encoders/color_resolver.dart';
+export 'src/encoders/stateless_widget.dart';
 
 // Layout
-export 'src/dsl/column.dart';
-export 'src/dsl/row.dart';
-export 'src/dsl/stack.dart';
-export 'src/dsl/center.dart';
-export 'src/dsl/padding.dart';
+export 'src/encoders/column.dart';
+export 'src/encoders/row.dart';
+export 'src/encoders/stack.dart';
+export 'src/encoders/center.dart';
+export 'src/encoders/padding.dart';
 
 // Content
-export 'src/dsl/container.dart';
-export 'src/dsl/card.dart';
-export 'src/dsl/text.dart';
-export 'src/dsl/image.dart';
-export 'src/dsl/icon.dart';
+export 'src/encoders/container.dart';
+export 'src/encoders/card.dart';
+export 'src/encoders/text.dart';
+export 'src/encoders/image.dart';
+export 'src/encoders/icon.dart';
 
 // Scroll
-export 'src/dsl/listview.dart';
+export 'src/encoders/listview.dart';
 
 // Interactive
-export 'src/dsl/button.dart';
+export 'src/encoders/button.dart';

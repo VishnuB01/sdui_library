@@ -22,10 +22,12 @@ class RowBuilder {
     final props = (json['properties'] as Map<String, dynamic>?) ?? {};
 
     return Row(
-      mainAxisAlignment:
-          parseMainAxisAlignment(props['mainAxisAlignment'] as String?),
-      crossAxisAlignment:
-          parseCrossAxisAlignment(props['crossAxisAlignment'] as String?),
+      mainAxisAlignment: parseMainAxisAlignment(
+        props['mainAxisAlignment'] as String?,
+      ),
+      crossAxisAlignment: parseCrossAxisAlignment(
+        props['crossAxisAlignment'] as String?,
+      ),
       mainAxisSize: parseMainAxisSize(props['mainAxisSize'] as String?),
       children: children,
     );

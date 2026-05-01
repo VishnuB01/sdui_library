@@ -45,10 +45,6 @@ class SizedBoxBuilder {
     final width = (props['width'] as num?)?.toDouble();
     final height = (props['height'] as num?)?.toDouble();
 
-    return flutter.SizedBox(
-      width: width,
-      height: height,
-      child: child,
-    );
+    return flutter.SizedBox(width: width, height: height, child: child);
   }
 }

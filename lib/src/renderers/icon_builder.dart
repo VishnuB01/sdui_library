@@ -27,11 +27,7 @@ class IconBuilder {
     final color = props['color'] != null ? parseColor(props['color']) : null;
     final size = toDouble(props['size']);
 
-    return Icon(
-      _resolveIcon(iconName),
-      color: color,
-      size: size,
-    );
+    return Icon(_resolveIcon(iconName), color: color, size: size);
   }
 
   /// Maps icon name strings to [IconData].

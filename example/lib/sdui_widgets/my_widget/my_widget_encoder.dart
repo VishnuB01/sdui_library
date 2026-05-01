@@ -30,16 +30,13 @@ class MyWidget extends SduiNode {
   // TODO: Replace with your real widget properties.
   final String label;
 
-  MyWidget({
-    Key? key,
-    required this.label,
-  }) : super(key: key);
+  MyWidget({Key? key, required this.label}) : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'MyWidget',
-        'properties': {
-          'label': label, // TODO: Add more properties here.
-        },
-      };
+    'widget': 'MyWidget',
+    'properties': {
+      'label': label, // TODO: Add more properties here.
+    },
+  };
 }

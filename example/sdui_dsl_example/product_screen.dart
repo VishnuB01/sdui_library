@@ -112,8 +112,12 @@ Column _reviewCard({
     key: key,
     crossAxisAlignment: 'start',
     children: [
-      Text('Reviews', fontSize: 18, fontWeight: 'bold',
-          color: 'Colors.grey.shade800'),
+      Text(
+        'Reviews',
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'Colors.grey.shade800',
+      ),
       Container(height: 10),
       Container(
         color: 'Colors.white',
@@ -142,8 +146,12 @@ Column _reviewCard({
                       ),
                     ),
                     Container(width: 10),
-                    Text(name, fontSize: 14, fontWeight: 'w600',
-                        color: 'Colors.grey.shade900'),
+                    Text(
+                      name,
+                      fontSize: 14,
+                      fontWeight: 'w600',
+                      color: 'Colors.grey.shade900',
+                    ),
                   ],
                 ),
                 // ✨ RatingStars inside a review card — also exported to JSON

@@ -25,8 +25,9 @@ class ListViewBuilder {
     final padding = parseEdgeInsets(props['padding']);
     final shrinkWrap = props['shrinkWrap'] as bool? ?? false;
     final physics = _parseScrollPhysics(props['physics'] as String?);
-    final scrollDirection =
-        _parseScrollDirection(props['scrollDirection'] as String?);
+    final scrollDirection = _parseScrollDirection(
+      props['scrollDirection'] as String?,
+    );
 
     return ListView(
       padding: padding,

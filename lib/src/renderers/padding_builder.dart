@@ -30,9 +30,6 @@ class PaddingBuilder {
     final props = (json['properties'] as Map<String, dynamic>?) ?? {};
     final padding = parseEdgeInsets(props['padding']);
 
-    return Padding(
-      padding: padding,
-      child: child,
-    );
+    return Padding(padding: padding, child: child);
   }
 }

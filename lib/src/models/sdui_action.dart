@@ -19,10 +19,7 @@ class SduiAction {
   /// Arbitrary key-value payload for the action.
   final Map<String, dynamic> payload;
 
-  const SduiAction({
-    required this.type,
-    this.payload = const {},
-  });
+  const SduiAction({required this.type, this.payload = const {}});
 
   /// Parses an [SduiAction] from a JSON map.
   /// Returns null if the input is null or malformed.

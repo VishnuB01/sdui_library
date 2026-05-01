@@ -205,10 +205,13 @@ EdgeInsets parseEdgeInsets(dynamic value) {
       return EdgeInsets.all((value['all'] as num).toDouble());
     }
     return EdgeInsets.only(
-      left: (value['left'] as num? ?? value['horizontal'] as num? ?? 0).toDouble(),
+      left: (value['left'] as num? ?? value['horizontal'] as num? ?? 0)
+          .toDouble(),
       top: (value['top'] as num? ?? value['vertical'] as num? ?? 0).toDouble(),
-      right: (value['right'] as num? ?? value['horizontal'] as num? ?? 0).toDouble(),
-      bottom: (value['bottom'] as num? ?? value['vertical'] as num? ?? 0).toDouble(),
+      right: (value['right'] as num? ?? value['horizontal'] as num? ?? 0)
+          .toDouble(),
+      bottom: (value['bottom'] as num? ?? value['vertical'] as num? ?? 0)
+          .toDouble(),
     );
   }
   return EdgeInsets.zero;

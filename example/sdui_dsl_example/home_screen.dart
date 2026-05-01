@@ -52,11 +52,7 @@ final _ = Column(
             fontWeight: 'bold',
           ),
           Container(height: 4),
-          Text(
-            'Build. Export. Ship.',
-            fontSize: 14,
-            color: 'Colors.white70',
-          ),
+          Text('Build. Export. Ship.', fontSize: 14, color: 'Colors.white70'),
         ],
       ),
     ),
@@ -90,10 +86,7 @@ final _ = Column(
             fontWeight: 'bold',
             padding: {'horizontal': 24, 'vertical': 16},
             icon: Icon(icon: 'download', color: 'Colors.white', size: 18),
-            onTap: SduiAction(
-              type: 'navigate',
-              payload: {'route': '/export'},
-            ),
+            onTap: SduiAction(type: 'navigate', payload: {'route': '/export'}),
           ),
           Container(height: 12),
           OutlinedButton(
@@ -153,10 +146,12 @@ Column _statCard(String value, String label, String bgColor) {
         child: Column(
           mainAxisAlignment: 'center',
           children: [
-            Text(value,
-                fontSize: 22,
-                fontWeight: 'bold',
-                color: 'Colors.grey.shade800'),
+            Text(
+              value,
+              fontSize: 22,
+              fontWeight: 'bold',
+              color: 'Colors.grey.shade800',
+            ),
             Text(label, fontSize: 11, color: 'Colors.grey.shade600'),
           ],
         ),
@@ -177,10 +172,12 @@ Container _recentItem(String name, String bgColor, String iconName) {
           children: [
             Icon(icon: iconName, color: 'Colors.indigo', size: 20),
             Container(width: 12),
-            Text(name,
-                fontSize: 14,
-                fontWeight: 'w500',
-                color: 'Colors.grey.shade800'),
+            Text(
+              name,
+              fontSize: 14,
+              fontWeight: 'w500',
+              color: 'Colors.grey.shade800',
+            ),
           ],
         ),
         Icon(icon: 'forward', color: 'Colors.grey', size: 18),

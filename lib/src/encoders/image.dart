@@ -40,13 +40,13 @@ class Image extends SduiNode {
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Image',
-        'properties': {
-          'src': src,
-          if (width != null) 'width': width,
-          if (height != null) 'height': height,
-          if (fit != null) 'fit': fit,
-          if (borderRadius != null) 'borderRadius': borderRadius,
-        },
-      };
+    'widget': 'Image',
+    'properties': {
+      'src': src,
+      if (width != null) 'width': width,
+      if (height != null) 'height': height,
+      if (fit != null) 'fit': fit,
+      if (borderRadius != null) 'borderRadius': borderRadius,
+    },
+  };
 }

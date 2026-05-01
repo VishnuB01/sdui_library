@@ -49,14 +49,14 @@ class RatingStars extends SduiNode {
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'RatingStars',
-        'properties': {
-          'rating': rating,
-          'maxStars': maxStars,
-          if (label != null) 'label': label,
-          if (starColor != null) 'starColor': starColor,
-          if (inactiveStarColor != null) 'inactiveStarColor': inactiveStarColor,
-          if (size != null) 'size': size,
-        },
-      };
+    'widget': 'RatingStars',
+    'properties': {
+      'rating': rating,
+      'maxStars': maxStars,
+      if (label != null) 'label': label,
+      if (starColor != null) 'starColor': starColor,
+      if (inactiveStarColor != null) 'inactiveStarColor': inactiveStarColor,
+      if (size != null) 'size': size,
+    },
+  };
 }

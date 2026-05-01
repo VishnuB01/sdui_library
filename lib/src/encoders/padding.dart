@@ -19,18 +19,12 @@ class Padding extends SduiNode {
   final dynamic padding;
   final SduiNode? child;
 
-  Padding({
-    Key? key,
-    required this.padding,
-    this.child,
-  }) : super(key: key);
+  Padding({Key? key, required this.padding, this.child}) : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Padding',
-        'properties': {
-          'padding': padding,
-        },
-        if (child != null) 'child': child!.toJson(),
-      };
+    'widget': 'Padding',
+    'properties': {'padding': padding},
+    if (child != null) 'child': child!.toJson(),
+  };
 }

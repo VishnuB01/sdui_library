@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// A function signature for widget builders driven by JSON.
-typedef WidgetBuilderFromJson = Widget Function(
-  Map<String, dynamic> json,
-);
+typedef WidgetBuilderFromJson = Widget Function(Map<String, dynamic> json);
 
 /// A global registry that maps widget type strings to their builder functions.
 ///

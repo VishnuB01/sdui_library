@@ -72,22 +72,22 @@ abstract class _ButtonBase extends SduiNode {
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': _buttonType,
-        'properties': {
-          'label': label,
-          if (labelColor != null) 'labelColor': resolveColor(labelColor),
-          if (backgroundColor != null)
-            'backgroundColor': resolveColor(backgroundColor),
-          if (borderColor != null) 'borderColor': resolveColor(borderColor),
-          if (borderWidth != null) 'borderWidth': borderWidth,
-          if (borderRadius != null) 'borderRadius': borderRadius,
-          if (fontSize != null) 'fontSize': fontSize,
-          if (fontWeight != null) 'fontWeight': fontWeight,
-          if (padding != null) 'padding': padding,
-        },
-        if (icon != null) 'icon': icon!.toJson(),
-        if (onTap != null) 'onTap': onTap!.toJson(),
-      };
+    'widget': _buttonType,
+    'properties': {
+      'label': label,
+      if (labelColor != null) 'labelColor': resolveColor(labelColor),
+      if (backgroundColor != null)
+        'backgroundColor': resolveColor(backgroundColor),
+      if (borderColor != null) 'borderColor': resolveColor(borderColor),
+      if (borderWidth != null) 'borderWidth': borderWidth,
+      if (borderRadius != null) 'borderRadius': borderRadius,
+      if (fontSize != null) 'fontSize': fontSize,
+      if (fontWeight != null) 'fontWeight': fontWeight,
+      if (padding != null) 'padding': padding,
+    },
+    if (icon != null) 'icon': icon!.toJson(),
+    if (onTap != null) 'onTap': onTap!.toJson(),
+  };
 }
 
 /// A filled elevated button. See [_ButtonBase] for all properties.
@@ -104,18 +104,18 @@ class ElevatedButton extends _ButtonBase {
     SduiNode? icon,
     SduiAction? onTap,
   }) : super(
-          'ElevatedButton',
-          key: key,
-          label: label,
-          labelColor: labelColor,
-          backgroundColor: backgroundColor,
-          borderRadius: borderRadius,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          padding: padding,
-          icon: icon,
-          onTap: onTap,
-        );
+         'ElevatedButton',
+         key: key,
+         label: label,
+         labelColor: labelColor,
+         backgroundColor: backgroundColor,
+         borderRadius: borderRadius,
+         fontSize: fontSize,
+         fontWeight: fontWeight,
+         padding: padding,
+         icon: icon,
+         onTap: onTap,
+       );
 }
 
 /// A flat text button. See [_ButtonBase] for all properties.
@@ -131,17 +131,17 @@ class TextButton extends _ButtonBase {
     SduiNode? icon,
     SduiAction? onTap,
   }) : super(
-          'TextButton',
-          key: key,
-          label: label,
-          labelColor: labelColor,
-          borderRadius: borderRadius,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          padding: padding,
-          icon: icon,
-          onTap: onTap,
-        );
+         'TextButton',
+         key: key,
+         label: label,
+         labelColor: labelColor,
+         borderRadius: borderRadius,
+         fontSize: fontSize,
+         fontWeight: fontWeight,
+         padding: padding,
+         icon: icon,
+         onTap: onTap,
+       );
 }
 
 /// An outlined (bordered) button. See [_ButtonBase] for all properties.
@@ -159,17 +159,17 @@ class OutlinedButton extends _ButtonBase {
     SduiNode? icon,
     SduiAction? onTap,
   }) : super(
-          'OutlinedButton',
-          key: key,
-          label: label,
-          labelColor: labelColor,
-          borderColor: borderColor,
-          borderWidth: borderWidth,
-          borderRadius: borderRadius,
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          padding: padding,
-          icon: icon,
-          onTap: onTap,
-        );
+         'OutlinedButton',
+         key: key,
+         label: label,
+         labelColor: labelColor,
+         borderColor: borderColor,
+         borderWidth: borderWidth,
+         borderRadius: borderRadius,
+         fontSize: fontSize,
+         fontWeight: fontWeight,
+         padding: padding,
+         icon: icon,
+         onTap: onTap,
+       );
 }

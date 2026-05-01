@@ -33,11 +33,11 @@ class RatingStarsBuilder {
     final label = props['label'] as String?;
     final size = (props['size'] as num?)?.toDouble() ?? 22.0;
 
-    final starColor = _hexToColor(props['starColor'] as String?) ??
-        const Color(0xFFF59E0B);
+    final starColor =
+        _hexToColor(props['starColor'] as String?) ?? const Color(0xFFF59E0B);
     final inactiveColor =
         _hexToColor(props['inactiveStarColor'] as String?) ??
-            const Color(0xFFE5E7EB);
+        const Color(0xFFE5E7EB);
 
     if (rating < 0) {
       return const Text(
@@ -59,8 +59,8 @@ class RatingStarsBuilder {
               filled
                   ? Icons.star_rounded
                   : half
-                      ? Icons.star_half_rounded
-                      : Icons.star_outline_rounded,
+                  ? Icons.star_half_rounded
+                  : Icons.star_outline_rounded,
               color: (filled || half) ? starColor : inactiveColor,
               size: size,
             );

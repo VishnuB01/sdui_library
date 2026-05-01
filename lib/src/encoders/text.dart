@@ -58,21 +58,21 @@ class Text extends SduiNode {
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Text',
-        'properties': {
-          'data': data,
-          if (fontSize != null) 'fontSize': fontSize,
-          if (color != null) 'color': resolveColor(color),
-          if (fontWeight != null) 'fontWeight': fontWeight,
-          if (textAlign != null) 'textAlign': textAlign,
-          if (maxLines != null) 'maxLines': maxLines,
-          if (overflow != null) 'overflow': overflow,
-          if (letterSpacing != null) 'letterSpacing': letterSpacing,
-          if (height != null) 'height': height,
-          if (fontFamily != null) 'fontFamily': fontFamily,
-          if (decoration != null) 'decoration': decoration,
-          if (decorationColor != null)
-            'decorationColor': resolveColor(decorationColor),
-        },
-      };
+    'widget': 'Text',
+    'properties': {
+      'data': data,
+      if (fontSize != null) 'fontSize': fontSize,
+      if (color != null) 'color': resolveColor(color),
+      if (fontWeight != null) 'fontWeight': fontWeight,
+      if (textAlign != null) 'textAlign': textAlign,
+      if (maxLines != null) 'maxLines': maxLines,
+      if (overflow != null) 'overflow': overflow,
+      if (letterSpacing != null) 'letterSpacing': letterSpacing,
+      if (height != null) 'height': height,
+      if (fontFamily != null) 'fontFamily': fontFamily,
+      if (decoration != null) 'decoration': decoration,
+      if (decorationColor != null)
+        'decorationColor': resolveColor(decorationColor),
+    },
+  };
 }

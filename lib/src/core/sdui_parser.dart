@@ -134,11 +134,16 @@ class SduiParser {
     });
 
     // ─── Buttons ──────────────────────────────────────────────────────────────
-    for (final buttonType in ['ElevatedButton', 'TextButton', 'OutlinedButton']) {
+    for (final buttonType in [
+      'ElevatedButton',
+      'TextButton',
+      'OutlinedButton',
+    ]) {
       WidgetRegistry.register(buttonType, (json) {
         final iconJson = json['icon'] as Map<String, dynamic>?;
-        final iconWidget =
-            iconJson != null ? IconBuilder.fromJson(iconJson) : null;
+        final iconWidget = iconJson != null
+            ? IconBuilder.fromJson(iconJson)
+            : null;
         return ButtonBuilder.fromJson(json, iconWidget, _currentActionHandler);
       });
     }

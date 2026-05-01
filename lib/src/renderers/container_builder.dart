@@ -48,16 +48,15 @@ class ContainerBuilder {
     final gradient = _parseGradient(props['gradient'] as Map<String, dynamic>?);
 
     BoxDecoration? decoration;
-    if (borderColor != null || props['borderRadius'] != null || gradient != null) {
+    if (borderColor != null ||
+        props['borderRadius'] != null ||
+        gradient != null) {
       decoration = BoxDecoration(
         color: gradient != null ? null : color,
         gradient: gradient,
         borderRadius: borderRadius,
         border: borderColor != null
-            ? Border.all(
-                color: parseColor(borderColor),
-                width: borderWidth,
-              )
+            ? Border.all(color: parseColor(borderColor), width: borderWidth)
             : null,
       );
     }
@@ -77,7 +76,8 @@ class ContainerBuilder {
   static Gradient? _parseGradient(Map<String, dynamic>? gradientJson) {
     if (gradientJson == null) return null;
     final type = gradientJson['type'] as String? ?? 'linear';
-    final colorList = (gradientJson['colors'] as List<dynamic>?)
+    final colorList =
+        (gradientJson['colors'] as List<dynamic>?)
             ?.map((c) => parseColor(c))
             .toList() ??
         [];

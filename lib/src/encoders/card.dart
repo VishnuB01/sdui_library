@@ -23,20 +23,16 @@ class Card extends SduiNode {
 
   final SduiNode? child;
 
-  Card({
-    Key? key,
-    this.elevation,
-    this.borderRadius,
-    this.child,
-  }) : super(key: key);
+  Card({Key? key, this.elevation, this.borderRadius, this.child})
+    : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Card',
-        'properties': {
-          if (elevation != null) 'elevation': elevation,
-          if (borderRadius != null) 'borderRadius': borderRadius,
-        },
-        if (child != null) 'child': child!.toJson(),
-      };
+    'widget': 'Card',
+    'properties': {
+      if (elevation != null) 'elevation': elevation,
+      if (borderRadius != null) 'borderRadius': borderRadius,
+    },
+    if (child != null) 'child': child!.toJson(),
+  };
 }

@@ -22,18 +22,12 @@ class Stack extends SduiNode {
   final String? alignment;
   final List<SduiNode> children;
 
-  Stack({
-    Key? key,
-    this.alignment,
-    this.children = const [],
-  }) : super(key: key);
+  Stack({Key? key, this.alignment, this.children = const []}) : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Stack',
-        'properties': {
-          if (alignment != null) 'alignment': alignment,
-        },
-        'children': children.map((c) => c.toJson()).toList(),
-      };
+    'widget': 'Stack',
+    'properties': {if (alignment != null) 'alignment': alignment},
+    'children': children.map((c) => c.toJson()).toList(),
+  };
 }

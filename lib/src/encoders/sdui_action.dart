@@ -24,15 +24,12 @@ class SduiAction extends SduiNode {
   /// Arbitrary key-value payload passed to the action handler.
   final Map<String, dynamic> payload;
 
-  SduiAction({
-    Key? key,
-    required this.type,
-    this.payload = const {},
-  }) : super(key: key);
+  SduiAction({Key? key, required this.type, this.payload = const {}})
+    : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'type': type,
-        if (payload.isNotEmpty) 'payload': payload,
-      };
+    'type': type,
+    if (payload.isNotEmpty) 'payload': payload,
+  };
 }

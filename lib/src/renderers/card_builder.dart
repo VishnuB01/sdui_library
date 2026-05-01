@@ -24,8 +24,7 @@ class CardBuilder {
     final props = (json['properties'] as Map<String, dynamic>?) ?? {};
 
     final elevation = toDouble(props['elevation']) ?? 2.0;
-    final color =
-        props['color'] != null ? parseColor(props['color']) : null;
+    final color = props['color'] != null ? parseColor(props['color']) : null;
     final shadowColor = props['shadowColor'] != null
         ? parseColor(props['shadowColor'])
         : null;

@@ -76,19 +76,19 @@ class Container extends SduiNode {
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Container',
-        'properties': {
-          if (height != null) 'height': height,
-          if (width != null) 'width': width,
-          if (color != null) 'color': resolveColor(color),
-          if (padding != null) 'padding': padding,
-          if (margin != null) 'margin': margin,
-          if (borderRadius != null) 'borderRadius': borderRadius,
-          if (borderColor != null) 'borderColor': resolveColor(borderColor),
-          if (borderWidth != null) 'borderWidth': borderWidth,
-          if (alignment != null) 'alignment': alignment,
-          if (gradient != null) 'gradient': gradient,
-        },
-        if (child != null) 'child': child!.toJson(),
-      };
+    'widget': 'Container',
+    'properties': {
+      if (height != null) 'height': height,
+      if (width != null) 'width': width,
+      if (color != null) 'color': resolveColor(color),
+      if (padding != null) 'padding': padding,
+      if (margin != null) 'margin': margin,
+      if (borderRadius != null) 'borderRadius': borderRadius,
+      if (borderColor != null) 'borderColor': resolveColor(borderColor),
+      if (borderWidth != null) 'borderWidth': borderWidth,
+      if (alignment != null) 'alignment': alignment,
+      if (gradient != null) 'gradient': gradient,
+    },
+    if (child != null) 'child': child!.toJson(),
+  };
 }

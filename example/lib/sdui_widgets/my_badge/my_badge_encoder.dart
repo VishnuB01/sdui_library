@@ -30,16 +30,13 @@ class MyBadge extends SduiNode {
   // TODO: Replace with your real widget properties.
   final String label;
 
-  MyBadge({
-    Key? key,
-    required this.label,
-  }) : super(key: key);
+  MyBadge({Key? key, required this.label}) : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'MyBadge',
-        'properties': {
-          'label': label, // TODO: Add more properties here.
-        },
-      };
+    'widget': 'MyBadge',
+    'properties': {
+      'label': label, // TODO: Add more properties here.
+    },
+  };
 }

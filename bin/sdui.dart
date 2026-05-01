@@ -47,14 +47,13 @@ void main(List<String> args) {
         _printUsage();
         exit(1);
       }
-      ExportCommand(
-        fileName: args[1],
-        keyValue: args[2],
-      ).run();
+      ExportCommand(fileName: args[1], keyValue: args[2]).run();
 
     case 'add-widget':
       if (args.length < 2) {
-        stderr.writeln('\n  ✗  Missing widget name for "add-widget" command.\n');
+        stderr.writeln(
+          '\n  ✗  Missing widget name for "add-widget" command.\n',
+        );
         _printUsage();
         exit(1);
       }

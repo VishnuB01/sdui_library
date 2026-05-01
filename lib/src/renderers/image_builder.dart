@@ -38,8 +38,7 @@ class ImageBuilder {
       width: width,
       height: height,
       fit: fit,
-      errorBuilder: (context, error, stackTrace) =>
-          _placeholder(width, height),
+      errorBuilder: (context, error, stackTrace) => _placeholder(width, height),
       loadingBuilder: (context, child, progress) {
         if (progress == null) return child;
         return SizedBox(
@@ -51,10 +50,7 @@ class ImageBuilder {
     );
 
     if (props['borderRadius'] != null) {
-      return ClipRRect(
-        borderRadius: borderRadius,
-        child: imageWidget,
-      );
+      return ClipRRect(borderRadius: borderRadius, child: imageWidget);
     }
 
     return imageWidget;
@@ -66,8 +62,11 @@ class ImageBuilder {
       height: height,
       color: const Color(0xFFEEEEEE),
       child: const Center(
-        child: Icon(Icons.broken_image_outlined,
-            color: Color(0xFF9E9E9E), size: 32),
+        child: Icon(
+          Icons.broken_image_outlined,
+          color: Color(0xFF9E9E9E),
+          size: 32,
+        ),
       ),
     );
   }

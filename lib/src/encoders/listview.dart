@@ -21,20 +21,16 @@ class ListView extends SduiNode {
   final bool? shrinkWrap;
   final List<SduiNode> children;
 
-  ListView({
-    Key? key,
-    this.padding,
-    this.shrinkWrap,
-    this.children = const [],
-  }) : super(key: key);
+  ListView({Key? key, this.padding, this.shrinkWrap, this.children = const []})
+    : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'ListView',
-        'properties': {
-          if (padding != null) 'padding': padding,
-          if (shrinkWrap != null) 'shrinkWrap': shrinkWrap,
-        },
-        'children': children.map((c) => c.toJson()).toList(),
-      };
+    'widget': 'ListView',
+    'properties': {
+      if (padding != null) 'padding': padding,
+      if (shrinkWrap != null) 'shrinkWrap': shrinkWrap,
+    },
+    'children': children.map((c) => c.toJson()).toList(),
+  };
 }

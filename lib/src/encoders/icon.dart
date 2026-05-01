@@ -23,20 +23,15 @@ class Icon extends SduiNode {
   final String? color;
   final double? size;
 
-  Icon({
-    Key? key,
-    required this.icon,
-    this.color,
-    this.size,
-  }) : super(key: key);
+  Icon({Key? key, required this.icon, this.color, this.size}) : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Icon',
-        'properties': {
-          'icon': icon,
-          if (color != null) 'color': color,
-          if (size != null) 'size': size,
-        },
-      };
+    'widget': 'Icon',
+    'properties': {
+      'icon': icon,
+      if (color != null) 'color': color,
+      if (size != null) 'size': size,
+    },
+  };
 }

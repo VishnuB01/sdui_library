@@ -26,12 +26,7 @@ class SizedBox extends SduiNode {
   final double? height;
   final SduiNode? child;
 
-  SizedBox({
-    Key? key,
-    this.width,
-    this.height,
-    this.child,
-  }) : super(key: key);
+  SizedBox({Key? key, this.width, this.height, this.child}) : super(key: key);
 
   @override
   Map<String, dynamic> toJson() {

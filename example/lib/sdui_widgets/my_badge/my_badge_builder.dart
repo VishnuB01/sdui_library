@@ -28,10 +28,7 @@ class MyBadgeBuilder {
     if (label.isEmpty) {
       return Text(
         '[MyBadge] — no content provided',
-        style: const TextStyle(
-          color: Colors.grey,
-          fontStyle: FontStyle.italic,
-        ),
+        style: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
       );
     }
 

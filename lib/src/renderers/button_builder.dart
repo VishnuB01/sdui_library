@@ -97,7 +97,10 @@ class ButtonBuilder {
             padding: padding,
             shape: shape,
             side: borderColor != null
-                ? BorderSide(color: borderColor, width: toDouble(props['borderWidth']) ?? 1.5)
+                ? BorderSide(
+                    color: borderColor,
+                    width: toDouble(props['borderWidth']) ?? 1.5,
+                  )
                 : null,
           ),
           child: iconWidget != null

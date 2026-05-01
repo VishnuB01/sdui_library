@@ -1,6 +1,6 @@
 name: sdui_library
 description: "Server-Driven UI library for Flutter — render widgets from JSON and export widget trees to JSON via CLI."
-version: 0.1.0
+version: 0.0.1
 homepage:
 
 environment:

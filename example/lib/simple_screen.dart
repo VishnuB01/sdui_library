@@ -68,11 +68,7 @@ final simpleScreen = Column(
             color: 'Colors.white',
           ),
           Container(height: 4),
-          Text(
-            'Build UI from JSON — fast.',
-            fontSize: 14,
-            color: '#C5CAE9',
-          ),
+          Text('Build UI from JSON — fast.', fontSize: 14, color: '#C5CAE9'),
         ],
       ),
     ),
@@ -155,10 +151,7 @@ final simpleScreen = Column(
         fontWeight: 'bold',
         padding: {'horizontal': 24, 'vertical': 16},
         icon: Icon(icon: 'download', color: 'Colors.white', size: 18),
-        onTap: SduiAction(
-          type: 'navigate',
-          payload: {'route': '/export'},
-        ),
+        onTap: SduiAction(type: 'navigate', payload: {'route': '/export'}),
       ),
     ),
 
@@ -172,10 +165,7 @@ final simpleScreen = Column(
         labelColor: 'Colors.indigo',
         fontSize: 14,
         icon: Icon(icon: 'code', color: 'Colors.indigo', size: 16),
-        onTap: SduiAction(
-          type: 'navigate',
-          payload: {'route': '/json_viewer'},
-        ),
+        onTap: SduiAction(type: 'navigate', payload: {'route': '/json_viewer'}),
       ),
     ),
   ],

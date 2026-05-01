@@ -39,13 +39,12 @@ class Column extends SduiNode {
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Column',
-        'properties': {
-          if (mainAxisAlignment != null) 'mainAxisAlignment': mainAxisAlignment,
-          if (crossAxisAlignment != null)
-            'crossAxisAlignment': crossAxisAlignment,
-          if (mainAxisSize != null) 'mainAxisSize': mainAxisSize,
-        },
-        'children': children.map((c) => c.toJson()).toList(),
-      };
+    'widget': 'Column',
+    'properties': {
+      if (mainAxisAlignment != null) 'mainAxisAlignment': mainAxisAlignment,
+      if (crossAxisAlignment != null) 'crossAxisAlignment': crossAxisAlignment,
+      if (mainAxisSize != null) 'mainAxisSize': mainAxisSize,
+    },
+    'children': children.map((c) => c.toJson()).toList(),
+  };
 }

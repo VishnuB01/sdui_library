@@ -13,15 +13,12 @@ import 'sdui_node.dart';
 class Center extends SduiNode {
   final SduiNode? child;
 
-  Center({
-    Key? key,
-    this.child,
-  }) : super(key: key);
+  Center({Key? key, this.child}) : super(key: key);
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Center',
-        'properties': const {},
-        if (child != null) 'child': child!.toJson(),
-      };
+    'widget': 'Center',
+    'properties': const {},
+    if (child != null) 'child': child!.toJson(),
+  };
 }

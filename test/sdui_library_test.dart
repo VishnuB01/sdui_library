@@ -18,18 +18,21 @@ void main() {
       final json = {'widget': 'UnknownWidget123'};
       final widget = SduiParser.buildWidget(json);
       await tester.pumpWidget(MaterialApp(home: Scaffold(body: widget)));
-      expect(
-        find.textContaining("Can't find a widget"),
-        findsOneWidget,
-      );
+      expect(find.textContaining("Can't find a widget"), findsOneWidget);
     });
 
     testWidgets('builds a Column with Text children', (tester) async {
       final json = {
         'widget': 'Column',
         'children': [
-          {'widget': 'Text', 'properties': {'data': 'Line 1'}},
-          {'widget': 'Text', 'properties': {'data': 'Line 2'}},
+          {
+            'widget': 'Text',
+            'properties': {'data': 'Line 1'},
+          },
+          {
+            'widget': 'Text',
+            'properties': {'data': 'Line 2'},
+          },
         ],
       };
       final widget = SduiParser.buildWidget(json);

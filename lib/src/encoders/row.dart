@@ -37,13 +37,12 @@ class Row extends SduiNode {
 
   @override
   Map<String, dynamic> toJson() => {
-        'widget': 'Row',
-        'properties': {
-          if (mainAxisAlignment != null) 'mainAxisAlignment': mainAxisAlignment,
-          if (crossAxisAlignment != null)
-            'crossAxisAlignment': crossAxisAlignment,
-          if (mainAxisSize != null) 'mainAxisSize': mainAxisSize,
-        },
-        'children': children.map((c) => c.toJson()).toList(),
-      };
+    'widget': 'Row',
+    'properties': {
+      if (mainAxisAlignment != null) 'mainAxisAlignment': mainAxisAlignment,
+      if (crossAxisAlignment != null) 'crossAxisAlignment': crossAxisAlignment,
+      if (mainAxisSize != null) 'mainAxisSize': mainAxisSize,
+    },
+    'children': children.map((c) => c.toJson()).toList(),
+  };
 }

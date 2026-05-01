@@ -23,11 +23,7 @@ class StackBuilder {
     final alignment = parseAlignment(props['alignment'] as String?);
     final fit = _parseStackFit(props['fit'] as String?);
 
-    return Stack(
-      alignment: alignment,
-      fit: fit,
-      children: children,
-    );
+    return Stack(alignment: alignment, fit: fit, children: children);
   }
 
   static StackFit _parseStackFit(String? value) {

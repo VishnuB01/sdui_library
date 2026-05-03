@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:path/path.dart' as p;
 
 /// Handles the `dart run sdui export <file_name> <key_value>` command.
 ///
@@ -75,9 +74,7 @@ class ExportCommand {
 
     final prettyJson = const JsonEncoder.withIndent('  ').convert(decoded);
 
-    final outputDir = Directory(
-      p.join(Directory.current.path, 'exported_json'),
-    );
+    final outputDir = Directory('${Directory.current.path}/exported_json');
     if (!outputDir.existsSync()) outputDir.createSync(recursive: true);
 
     // Use  <fileName>_<keyValue>.json  for partial/widget exports so each
@@ -86,7 +83,7 @@ class ExportCommand {
     final outputBasename = (keyValue == fileName)
         ? '$fileName.json'
         : '${fileName}_$keyValue.json';
-    final outputFile = File(p.join(outputDir.path, outputBasename));
+    final outputFile = File('${outputDir.path}/$outputBasename');
     outputFile.writeAsStringSync(prettyJson);
 
     // ── 6. Success banner ─────────────────────────────────────────────────────
@@ -105,11 +102,11 @@ class ExportCommand {
 
   /// Recursively searches `lib/` for a file named `<fileName>.dart`.
   File? _findSourceFile() {
-    final libDir = Directory(p.join(Directory.current.path, 'lib'));
+    final libDir = Directory('${Directory.current.path}/lib');
     if (!libDir.existsSync()) return null;
 
     for (final entity in libDir.listSync(recursive: true)) {
-      if (entity is File && p.basename(entity.path) == '$fileName.dart') {
+      if (entity is File && entity.uri.pathSegments.last == '$fileName.dart') {
         return entity;
       }
     }
@@ -181,16 +178,15 @@ class ExportCommand {
 
   /// Writes the temporary runner script and returns the [File].
   File _writeRunner(File sourceFile) {
-    final dartToolDir = Directory(p.join(Directory.current.path, '.dart_tool'));
+    final dartToolDir = Directory('${Directory.current.path}/.dart_tool');
     if (!dartToolDir.existsSync()) dartToolDir.createSync(recursive: true);
 
-    final runnerFile = File(p.join(dartToolDir.path, 'sdui_runner.dart'));
+    final runnerFile = File('${dartToolDir.path}/sdui_runner.dart');
 
     // Convert the source file path to a package-root-relative import URI.
     // We use a relative path from .dart_tool/ → project root → lib/...
-    final relImport = p
-        .relative(sourceFile.path, from: dartToolDir.path)
-        .replaceAll(r'\', '/');
+    final relImport =
+        '../${sourceFile.uri.path.substring(Directory.current.uri.path.length)}';
 
     // Parse the DSL source file for top-level var names so we can
     // force-reference them in the runner to trigger lazy initialisation.

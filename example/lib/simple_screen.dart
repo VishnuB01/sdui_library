@@ -34,6 +34,8 @@ import 'package:sdui_library/sdui_dsl.dart';
 
 // NOTE: Never use '_' as the variable name — the CLI skips it.
 // Use any real name; only the Key('...') value matters for export.
+/// dart run sdui_library:sdui export simple_screen hero_banner
+
 final simpleScreen = Column(
   key: Key('simple_screen'), // ← full screen export
   mainAxisAlignment: 'start',

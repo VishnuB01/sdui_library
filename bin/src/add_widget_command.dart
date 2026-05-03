@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:path/path.dart' as p;
 
 /// Handles the `dart run sdui add-widget <WidgetName>` command.
 ///
@@ -45,19 +44,19 @@ class AddWidgetCommand {
 
     // 2. Create the widget sub-directory
     final widgetDir = Directory(
-      p.join(Directory.current.path, 'lib', 'sdui_widgets', snakeName),
+      '${Directory.current.path}/lib/sdui_widgets/$snakeName',
     );
     widgetDir.createSync(recursive: true);
 
     // 3. Write encoder (DSL — pure Dart)
     _writeFile(
-      file: File(p.join(widgetDir.path, '${snakeName}_encoder.dart')),
+      file: File('${widgetDir.path}/${snakeName}_encoder.dart'),
       content: _encoderTemplate(snakeName),
     );
 
     // 4. Write builder (runtime — Flutter)
     _writeFile(
-      file: File(p.join(widgetDir.path, '${snakeName}_builder.dart')),
+      file: File('${widgetDir.path}/${snakeName}_builder.dart'),
       content: _builderTemplate(snakeName),
     );
 
@@ -180,12 +179,7 @@ class ${widgetName}Builder {
 
   void _updateBarrel(String snakeName) {
     final barrelFile = File(
-      p.join(
-        Directory.current.path,
-        'lib',
-        'sdui_widgets',
-        'sdui_custom_widgets.dart',
-      ),
+      '${Directory.current.path}/lib/sdui_widgets/sdui_custom_widgets.dart',
     );
 
     if (!barrelFile.existsSync()) {
